@@ -2,18 +2,16 @@ package com.jap.customexception;
 
 public class Account {
 
-    private int accountBalance;
+    private final int accountBalance;
 
-    public Account(int accountBalance) {
-        this.accountBalance = accountBalance;
-    }
+    public Account(int accountBalance) {this.accountBalance = accountBalance;}
 
     //create getter and setter
 
 
-
-
-
+    public int getAccountBalance() {
+        return accountBalance;
+    }
 
     /**
      * This method returns the new balance deducting the withdraw amount from the balance
@@ -22,11 +20,14 @@ public class Account {
      * @param amount
      * @return
      * @throws InsufficientFundException
-     *
      */
-    public int  withdraw(int  amount) throws InsufficientFundException{
-
-        return 1;
+    public int withdraw(int amount) throws InsufficientFundException {
+        if(getAccountBalance() < amount){
+            throw new InsufficientFundException("Insufficient funds");
+        }
+        else{
+            return getAccountBalance();
+        }
     }
 
 

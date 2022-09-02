@@ -27,7 +27,7 @@ public class AccountTests {
     public void givenValidWithdrawAmountThenReturnNewBalance() throws InsufficientFundException {
         int newBalance = account.withdraw(500);
 
-        assertEquals(4500,newBalance);
+        assertEquals(4500, newBalance);
     }
 
     @Test
