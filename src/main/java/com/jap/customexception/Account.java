@@ -4,7 +4,9 @@ public class Account {
 
     private final int accountBalance;
 
-    public Account(int accountBalance) {this.accountBalance = accountBalance;}
+    public Account(int accountBalance) {
+        this.accountBalance = accountBalance;
+    }
 
     //create getter and setter
 
@@ -22,13 +24,12 @@ public class Account {
      * @throws InsufficientFundException
      */
     public int withdraw(int amount) throws InsufficientFundException {
-        if(getAccountBalance() < amount){
+        if (getAccountBalance() < amount) {
             throw new InsufficientFundException("Insufficient funds");
+        } else if (getAccountBalance() > amount) {
+            return getAccountBalance() - amount;
         }
-        else{
-            return getAccountBalance();
-        }
+        return getAccountBalance();
     }
-
 
 }
